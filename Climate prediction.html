@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change Analysis</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Consistent font */
+            padding: 0;
+            margin: 0;
+            background-color: #f4f4f9; /* Light grey background */
+            background-image: url('img.webp'); /* Placeholder for background image URL */
+            background-size: cover;
+            background-attachment: fixed;
+            color: black; /* Standard text color for readability */
+        }
+        header {
+            background-color: #004400; /* Deep green, similar to agriculture theme */
+            padding: 10px 0;
+            text-align: center;
+            color: white; /* White text for contrast */
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white for form background */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for 3D effect */
+        }
+        .input-group {
+            margin-bottom: 10px; /* Spacing between input groups */
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px; /* Spacing below labels */
+        }
+        .input-group input[type='text'],
+        .input-group input[type='range'] {
+            width: 100%; /* Full width inputs */
+            padding: 8px; /* Padding for touch comfort */
+            border-radius: 4px; /* Matching rounded corners */
+            border: 1px solid #ddd; /* Subtle border styling */
+            box-sizing: border-box; /* Includes padding and border in the element's total width/height */
+        }
+        .button {
+            display: block;
+            width: 100%; /* Full width button */
+            padding: 10px;
+            border: none;
+            border-radius: 4px; /* Rounded corners for the button */
+            background-color: #007600; /* Green button for actions, fitting the theme */
+            color: white;
+            cursor: pointer;
+            margin-top: 20px; /* Margin top for spacing */
+        }
+        .button:hover {
+            background-color: #005600; /* Darker green on hover for interactive effect */
+        }
+        .slider-value {
+            text-align: right; /* Aligns the slider value text to the right */
+            margin-top: -10px; /* Positioning adjustment */
+            margin-bottom: 10px; /* Spacing below the slider value */
+            color: #666; /* Dark gray for readability */
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <h1>Climate Change Analysis</h1>
+    </header>
+    <div class="form-container">
+        <h2>Climate Data</h2>
+        <form id="predictionForm">
+            <div class="input-group">
+                <label for="meanTemperature">Enter Mean Temperature (°C):</label>
+                <input type="text" id="meanTemperature" name="meanTemperature" required>
+            </div>
+            <div class="input-group">
+                <label for="humidity">Humidity (%):</label>
+                <input type="range" id="humidity" name="humidity" min="0" max="100" value="50">
+                <div class="slider-value" id="humidityValue">50%</div>
+            </div>
+            <div class="input-group">
+                <label for="meanPressure">Mean Pressure (hPa):</label>
+                <input type="range" id="meanPressure" name="meanPressure" min="950" max="1050" value="1000">
+                <div class="slider-value" id="pressureValue">1000 hPa</div>
+            </div>
+            <div class="input-group">
+                <label for="windSpeed">Wind Speed (km/h):</label>
+                <input type="range" id="windSpeed" name="windSpeed" min="0" max="100" value="10">
+                <div class="slider-value" id="windSpeedValue">10 km/h</div>
+            </div>
+            <button type="submit" class="button">Predict Climate Impact</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById("humidity").oninput = function() {
+            document.getElementById("humidityValue").innerText = this.value + '%';
+        }
+        document.getElementById("meanPressure").oninput = function() {
+            document.getElementById("pressureValue").innerText = this.value + ' hPa';
+        }
+        document.getElementById("windSpeed").oninput = function() {
+            document.getElementById("windSpeedValue").innerText = this.value + ' km/h';
+        }
+    </script>
+</body>
+</html>
